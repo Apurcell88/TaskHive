@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import ProjectCard from "../components/ProjectCard";
 import { prisma } from "@/lib/prisma";
+import NewProjectForm from "../components/NewProjectForm";
 
 export const revalidate = 0; // optional, prevents caching for fresh data
 
@@ -28,6 +29,9 @@ const ProjectsPage = async () => {
   return (
     <main className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Your Projects</h1>
+
+      <NewProjectForm />
+
       {projects.length === 0 && (
         <p>No projects yet. Create one to get started!</p>
       )}
