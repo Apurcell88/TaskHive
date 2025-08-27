@@ -20,8 +20,8 @@ const ProjectsPage = async () => {
       OR: [{ ownerId: userId }, { members: { some: { id: userId } } }],
     },
     include: {
-      owner: true,
-      members: true,
+      owner: { select: { id: true, name: true } },
+      members: { select: { id: true, name: true } },
     },
     orderBy: { createdAt: "desc" },
   });
